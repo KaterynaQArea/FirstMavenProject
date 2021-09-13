@@ -35,11 +35,11 @@ public class LoginToEmail {
     }
 
     @Test
-    public void loginToEmailFirefoxTest() {
+    public void loginToEmailChromeManagerTest() {
 
-        WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.chromedriver().setup();
 
-        WebDriver webDriver = new FirefoxDriver();
+        WebDriver webDriver = new ChromeDriver();
         webDriver.get("https://www.i.ua/");
 
         WebElement searchInputLogin = webDriver.findElement(By.xpath("//*[@name='login']"));

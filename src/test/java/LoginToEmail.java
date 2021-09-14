@@ -48,8 +48,8 @@ public class LoginToEmail {
         WebElement searchInputPassword = webDriver.findElement(By.xpath("//*[@name='pass']"));
         searchInputPassword.sendKeys("987321");
 
-        WebElement SearchNextButton = webDriver.findElement(By.xpath("//*[@value='Войти']"));
-        SearchNextButton.click();
+        WebElement searchNextButton = webDriver.findElement(By.xpath("//*[@value='Войти']"));
+        searchNextButton.click();
 
         WebElement createEmail = webDriver.findElement(By.linkText("Создать письмо"));
         Assert.assertEquals(createEmail.getText(), "Создать письмо");

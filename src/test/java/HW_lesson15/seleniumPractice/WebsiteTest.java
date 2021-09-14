@@ -1,6 +1,6 @@
-package seleniumPractice;
+package HW_lesson15.seleniumPractice;
 
-import base.BaseTest;
+import HW_lesson15.seleniumPractice.base.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;

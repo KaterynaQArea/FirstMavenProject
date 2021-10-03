@@ -30,6 +30,7 @@ public class WaitTest extends BaseTest {
         WebElement addToYourCollectionButton = webDriver.findElement(By.xpath("//button[text()='Add To Your Collection']"));
         addToYourCollectionButton.click();
         wait.until(ExpectedConditions.alertIsPresent()).accept();
+        webDriver.switchTo().defaultContent();
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//button[text()='Back To Book Store']")));
         WebElement backToStoreButton = webDriver.findElement(By.xpath("//button[text()='Back To Book Store']"));
         backToStoreButton.click();
@@ -40,6 +41,7 @@ public class WaitTest extends BaseTest {
         WebElement addToYourCollectionButton2 = webDriver.findElement(By.xpath("//button[text()='Add To Your Collection']"));
         addToYourCollectionButton2.click();
         wait.until(ExpectedConditions.alertIsPresent()).accept();
+        webDriver.switchTo().defaultContent();
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//span[text()='Profile']")));
         WebElement profileButton = webDriver.findElement(By.xpath("//span[text()='Profile']"));

@@ -19,42 +19,38 @@ public class WaitTest extends BaseTest {
         passwordField.sendKeys("Qarea2021!");
         WebElement loginButton = webDriver.findElement(By.xpath("//*[@id='login']"));
         loginButton.click();
-
         JavascriptExecutor js = (JavascriptExecutor) webDriver;
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-
         WebDriverWait wait = new WebDriverWait(webDriver, 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Go To Book Store']")));
         WebElement goToBookStoreButton = webDriver.findElement(By.xpath("//button[text()='Go To Book Store']"));
-        goToBookStoreButton.click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@href='/books?book=9781449325862']")));
-        WebElement gitPocketGuide = webDriver.findElement(By.xpath("//*[@href='/books?book=9781449325862']"));
+        js.executeScript("arguments[0].click();", goToBookStoreButton);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Git Pocket Guide']")));
+        WebElement gitPocketGuide = webDriver.findElement(By.xpath("//a[text()='Git Pocket Guide']"));
         gitPocketGuide.click();
         WebElement addToYourCollectionButton = webDriver.findElement(By.xpath("//button[text()='Add To Your Collection']"));
         addToYourCollectionButton.click();
-        wait.until(ExpectedConditions.alertIsPresent());
-        webDriver.switchTo().alert().accept();
+        wait.until(ExpectedConditions.alertIsPresent()).accept();
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//button[text()='Back To Book Store']")));
         WebElement backToStoreButton = webDriver.findElement(By.xpath("//button[text()='Back To Book Store']"));
         backToStoreButton.click();
-        WebElement youDoNotKnowJS = webDriver.findElement(By.xpath("//*[@href='/books?book=9781491904244']"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()=\"You Don't Know JS\"]")));
+        WebElement youDoNotKnowJS = webDriver.findElement(By.xpath("//a[text()=\"You Don't Know JS\"]"));
         youDoNotKnowJS.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Add To Your Collection']")));
         WebElement addToYourCollectionButton2 = webDriver.findElement(By.xpath("//button[text()='Add To Your Collection']"));
         addToYourCollectionButton2.click();
-        wait.until(ExpectedConditions.alertIsPresent());
-        webDriver.switchTo().alert().accept();
-
+        wait.until(ExpectedConditions.alertIsPresent()).accept();
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//span[text()='Profile']")));
         WebElement profileButton = webDriver.findElement(By.xpath("//span[text()='Profile']"));
         profileButton.click();
+        System.out.println("yes ");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='text-right button di']")));
         WebElement deleteAllBooks = webDriver.findElement(By.xpath("//*[@class='text-right button di']"));
         deleteAllBooks.click();
         WebElement okButton = webDriver.findElement(By.xpath("//button[text()='OK']"));
         okButton.click();
-        wait.until(ExpectedConditions.alertIsPresent());
-        webDriver.switchTo().alert().accept();
+        wait.until(ExpectedConditions.alertIsPresent()).accept();
     }
 
     @Test
@@ -124,8 +120,8 @@ public class WaitTest extends BaseTest {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//a[contains(text(), \"Today's Deals\")]")));
         WebElement todayDealsTab = webDriver.findElement(By.xpath("//a[contains(text(), \"Today's Deals\")]"));
         todayDealsTab.click();
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[contains(text(),'Kasa Indoor Pan/Tilt Smart Home Camera, 1080p HD Security Camera wireless 2.4GHz with Night Vision, Motion Detection for Baby Monitor, Cloud & SD Card Storage, Works with Alexa & Google Home (EC70)')]")));
-        WebElement product = webDriver.findElement(By.xpath("//div[contains(text(),'Kasa Indoor Pan/Tilt Smart Home Camera, 1080p HD Security Camera wireless 2.4GHz with Night Vision, Motion Detection for Baby Monitor, Cloud & SD Card Storage, Works with Alexa & Google Home (EC70)')]"));
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//span[contains(text(), \"Kasa Smart 2K Security Camera for Baby Monitor Pan Tilt, 4MP HD In...\")]")));
+        WebElement product = webDriver.findElement(By.xpath("//span[contains(text(), \"Kasa Smart 2K Security Camera for Baby Monitor Pan Tilt, 4MP HD In...\")]"));
         product.click();
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id='submit.add-to-cart']")));
         WebElement addToCartButton = webDriver.findElement(By.xpath("//*[@id='submit.add-to-cart']"));
@@ -139,11 +135,7 @@ public class WaitTest extends BaseTest {
 
     public boolean isElementVisible(By popUp) {
         List<WebElement> popUps = webDriver.findElements(By.xpath("//input[@data-action-type='DISMISS']"));
-        if (popUps.size() > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return popUps.size() > 0;
     }
 }
 

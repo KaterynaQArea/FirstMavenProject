@@ -46,10 +46,9 @@ public class WaitTest extends BaseTest {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//span[text()='Profile']")));
         WebElement profileButton = webDriver.findElement(By.xpath("//span[text()='Profile']"));
         profileButton.click();
-        System.out.println("yes ");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='text-right button di']")));
         WebElement deleteAllBooks = webDriver.findElement(By.xpath("//*[@class='text-right button di']"));
-        deleteAllBooks.click();
+        js.executeScript("arguments[0].click();", deleteAllBooks);
         WebElement okButton = webDriver.findElement(By.xpath("//button[text()='OK']"));
         okButton.click();
         wait.until(ExpectedConditions.alertIsPresent()).accept();

@@ -15,9 +15,9 @@ public class BaseTest {
         webDriver = new ChromeDriver();
     }
 
-   /* @AfterMethod
+   @AfterMethod
     public void closeDriver() {
         webDriver.quit();
-    }*/
+    }
 }
 

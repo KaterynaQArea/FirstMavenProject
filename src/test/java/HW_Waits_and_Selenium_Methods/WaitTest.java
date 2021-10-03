@@ -27,6 +27,7 @@ public class WaitTest extends BaseTest {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Git Pocket Guide']")));
         WebElement gitPocketGuide = webDriver.findElement(By.xpath("//a[text()='Git Pocket Guide']"));
         gitPocketGuide.click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Add To Your Collection']")));
         WebElement addToYourCollectionButton = webDriver.findElement(By.xpath("//button[text()='Add To Your Collection']"));
         addToYourCollectionButton.click();
         wait.until(ExpectedConditions.alertIsPresent()).accept();
@@ -52,7 +53,6 @@ public class WaitTest extends BaseTest {
         WebElement okButton = webDriver.findElement(By.xpath("//button[text()='OK']"));
         okButton.click();
         wait.until(ExpectedConditions.alertIsPresent()).accept();
-        ////*[@class='text-right button di']
     }
 
     @Test

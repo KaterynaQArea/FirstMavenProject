@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class WaitTest extends BaseTest {
+public class WaitTest extends HW_lesson15.seleniumPractice.base.BaseTest {
     @Test
     public void DeleteAllBooks() {
         webDriver.get("https://demoqa.com/login");

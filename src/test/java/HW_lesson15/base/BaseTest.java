@@ -16,7 +16,7 @@ public class BaseTest {
     public void setupDriver() {
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
-        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        //webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
    @AfterMethod

@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class AdvancedElements extends BaseTest {
+public class AdvancedElements extends HW_lesson15.seleniumPractice.base.BaseTest {
 
     @Test
     public void pageSourceCheck() {

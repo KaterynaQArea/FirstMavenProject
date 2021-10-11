@@ -1,15 +1,12 @@
 package PagesPageFactory;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 
-public class FirstProductPage {
+public class FirstProductPage extends BasePage {
 
-    private final WebDriver webDriver;
     @FindBy(xpath = "//select[@id='pa_color']")
     WebElement colorDropDown;
     @FindBy(xpath = "//select[@id='pa_size']")
@@ -20,26 +17,23 @@ public class FirstProductPage {
     WebElement viewCartButton;
 
     public FirstProductPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
+        super(webDriver);
         PageFactory.initElements(webDriver, this);
     }
 
     public void chooseColor(int index) {
-        Select select = new Select(colorDropDown);
-        select.selectByIndex(index);
+        selectOptionFromDropDownByIndex(colorDropDown, index);
     }
 
     public void chooseSize(int index) {
-        Select select = new Select(sizeDropDown);
-        select.selectByIndex(index);
+        selectOptionFromDropDownByIndex(sizeDropDown, index);
     }
 
     public void addProductToCart() {
-        addToCartButton.click();
+        jsClick(addToCartButton);
     }
-    public void goToCart () {
-        JavascriptExecutor js = (JavascriptExecutor) webDriver;
-        js.executeScript("arguments[0].click();", viewCartButton);
 
+    public void goToCart() {
+        jsClick(viewCartButton);
     }
 }

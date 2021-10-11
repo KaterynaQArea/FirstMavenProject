@@ -4,9 +4,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
-
-    private final WebDriver webDriver;
+public class HomePage extends BasePage {
 
     @FindBy(xpath = "//a[@class='noo-search']")
     WebElement searchIcon;
@@ -16,17 +14,16 @@ public class HomePage {
 
 
     public HomePage(WebDriver webDriver) {
-        this.webDriver = webDriver;
+        super(webDriver);
         PageFactory.initElements(webDriver, this);
     }
 
     public void clickSearch() {
-        JavascriptExecutor js = (JavascriptExecutor) webDriver;
-        js.executeScript("arguments[0].click();", searchIcon);
+        jsClick(searchIcon);
     }
 
     public void inputSearchQuery(String value) {
-        searchField.sendKeys(value);
+        fillingTheField(searchField, value);
         searchField.sendKeys(Keys.ENTER);
     }
 

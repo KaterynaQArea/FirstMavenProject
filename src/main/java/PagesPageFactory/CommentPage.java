@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CommentPage {
+public class CommentPage extends BasePage {
 
     @FindBy(xpath = "//input[@id='author']")
     WebElement yourNameField;
@@ -23,27 +23,28 @@ public class CommentPage {
     WebElement postCommentButton;
 
     public CommentPage(WebDriver webDriver) {
+        super(webDriver);
         PageFactory.initElements(webDriver, this);
     }
 
     public void fillInYourName(String s) {
-        yourNameField.sendKeys(s);
+        fillingTheField(yourNameField, s);
     }
 
     public void fillInYourEmail(String s) {
-        yourEmailField.sendKeys(s);
+        fillingTheField(yourEmailField, s);
     }
 
     public void fillInWebsite(String s) {
-        websiteField.sendKeys(s);
+        fillingTheField(websiteField, s);
     }
 
     public void fillInYourComment(String s) {
-        yourCommentField.sendKeys(s);
+        fillingTheField(yourCommentField, s);
     }
 
     public void clickPostCommentButton() {
-        postCommentButton.click();
+        jsClick(postCommentButton);
     }
 }
 

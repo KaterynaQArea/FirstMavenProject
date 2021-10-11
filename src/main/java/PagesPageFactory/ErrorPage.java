@@ -6,12 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class ErrorPage {
+public class ErrorPage extends BasePage{
 
     @FindBy(id = "error-page")
     WebElement errorMessage;
 
     public ErrorPage(WebDriver webDriver) {
+        super(webDriver);
         PageFactory.initElements(webDriver, this);
     }
 

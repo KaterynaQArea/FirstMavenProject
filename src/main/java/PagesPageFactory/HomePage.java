@@ -26,6 +26,5 @@ public class HomePage extends BasePage {
         fillingTheField(searchField, value);
         searchField.sendKeys(Keys.ENTER);
     }
-
 }
 

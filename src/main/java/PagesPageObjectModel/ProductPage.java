@@ -21,17 +21,14 @@ public class ProductPage extends BasePage {
 
     public void changeSize(String size) {
         selectOptionFromDropDown(sizeDropDown, size);
-
     }
 
-    public void changeQty(String quantity) {
+    public void changeQuantity(String quantity) {
         changeTheValue(qtyField, quantity);
-
     }
 
     public void addToCart() {
         jsClick(addToCartButton);
-
     }
 
     public void goToTheCart() {

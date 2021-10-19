@@ -40,4 +40,9 @@ public class BasePage {
         WebDriverWait webDriverWait = new WebDriverWait(webDriver, timeWait);
         webDriverWait.until(ExpectedConditions.visibilityOfAllElements(webElement));
     }
+
+    public void openURL(String URL) {
+        webDriver.get(URL);
+        webDriver.manage().window().maximize();
+    }
 }

@@ -18,5 +18,4 @@ public class CartPage extends BasePage {
     public void presenceOfProductAddedToCart(int timeWait) {
         isElementVisible(clearShoppingCartButton, timeWait);
     }
-
 }

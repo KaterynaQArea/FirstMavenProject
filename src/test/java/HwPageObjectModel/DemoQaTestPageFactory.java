@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 public class DemoQaTestPageFactory extends BaseTest {
     @Test
     public void addCommentWithoutCaptcha() {
-        getWebDriver().get("https://shop.demoqa.com/author/lsharm/");
         AuthorPage authorPage = new AuthorPage(getWebDriver());
+        authorPage.openURL("https://shop.demoqa.com/author/lsharm/");
         authorPage.clickReadMore();
         CommentPage commentPage = new CommentPage(getWebDriver());
         commentPage.fillInYourName("Mariya");
@@ -17,13 +17,13 @@ public class DemoQaTestPageFactory extends BaseTest {
         commentPage.clickPostCommentButton();
         ErrorPage errorPage = new ErrorPage(getWebDriver());
         errorPage.verifyErrorMessage();
+        log("Error message 'Error: You entered an incorrect CAPTCHA answer. Please go back and try again' when the comment is added without captcha");
     }
 
     @Test
     public void productPresentInCart() {
-        getWebDriver().get("https://shop.demoqa.com/");
-        getWebDriver().manage().window().maximize();
         HomePage homePage = new HomePage(getWebDriver());
+        homePage.openURL("https://shop.demoqa.com/");
         homePage.clickSearch();
         homePage.inputSearchQuery("blue");
         SearchResultsPage searchResultsPage = new SearchResultsPage(getWebDriver());
@@ -36,6 +36,6 @@ public class DemoQaTestPageFactory extends BaseTest {
         firstProductPage.goToCart();
         CartPage cartPage = new CartPage(getWebDriver());
         cartPage.presenceOfProductAddedToCart(10);
-
+        log("The product was added to the cart from the search results");
     }
 }

@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite By Class Name">
+    <test name="By Class">
+        <classes>
+            <class name="HwPageObjectModel.DemoQaTestPageFactory"></class>
+            <class name="HwPageObjectModel.DemoQaTestPageObjectModel"></class>
+        </classes>
+    </test>
+
+</suite>

@@ -13,6 +13,5 @@ public class CartPage extends BasePage {
 
     public void presenceOfProductAddedToCart() {
         isElementVisible(productInTheCart, 10);
-
     }
 }

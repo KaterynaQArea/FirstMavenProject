@@ -36,6 +36,9 @@ public class BasePage {
         WebElement field = webDriver.findElement(locator);
         field.clear();
         field.sendKeys(value);
+    }
 
+    public void openURL(String URL) {
+        webDriver.get(URL);
     }
 }
